@@ -1,0 +1,9 @@
+apiVersion: example.com/v1
+kind: Testapp
+metadata:
+  name: my-testapp
+cassandra:
+  replica: 1
+jobs:
+  - name: Transaction
+  - name: Notification
