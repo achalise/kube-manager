@@ -6,11 +6,11 @@ testAppEvents$.subscribe(e => {
     console.log(`Received event `, e.type);
     switch (e.type) {
         case 'CREATED':
-            console.log(`should create`);
+            console.log(`Processing create testapp event ...`);
             createCassandraRC().then(() => processCreateJob()).catch(e => console.log(`error processing create event - ${e}`));
             return;
         case 'DELETED':
-            console.log(`Processing delete testapp event, if it exists ..`)
+            console.log(`Processing delete testapp event, if it exists ..`);
             deleteCassandraRC().then(() => processDeleteJob()).then(() => console.log(`Completed processing delete testapp event`)).catch(e => console.log(`error processing delete testapp as it does not exist`));
             return;
         case 'UPDATED':
@@ -24,5 +24,5 @@ testAppEvents$.subscribe(e => {
 });
 
 export function processEvents() {
-    watchTestApps();
+    setTimeout(watchTestApps, 3000);
 };

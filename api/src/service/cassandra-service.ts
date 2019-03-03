@@ -21,7 +21,16 @@ const createCassandraRC = () => {
 const deleteCassandraRC = () => {
     return k8sPatchedApi.patchNamespacedReplicationControllerScale('cassandra', 'default',
         { spec: { replicas: 0 } } as V1ReplicationControllerSpec).then(() =>
-            k8sApi.deleteNamespacedReplicationController('cassandra', 'default')).catch(e => console.log(`Error deleting rc`));
+        executeDeleteCassandra()).catch(e => console.log(`Error deleting rc`));
+}
+
+
+const executeDeleteCassandra = () => {
+    return new Promise((rs, rj) => {
+        setTimeout(() => {
+            rs(k8sApi.deleteNamespacedReplicationController('cassandra', 'default'));
+        }, 2000);
+    });
 }
 
 const deleteService = () => {

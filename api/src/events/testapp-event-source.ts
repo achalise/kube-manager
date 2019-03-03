@@ -1,5 +1,5 @@
 import * as k8s from '@kubernetes/client-node';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { distinctUntilChanged, filter, map } from 'rxjs/operators';
 import { kubeConfig } from '../config/k8-api';
 import { CustomApi } from '../custom-api/custom-api';
