@@ -1,9 +1,9 @@
 import * as k8s from '@kubernetes/client-node';
 
 export class PatchedK8sApi extends k8s.Core_v1Api {
-    patchNamespacedReplicationControllerScale(...args) {
+    patchNamespacedReplicationControllerScale(...args: (string | k8s.V1ReplicationControllerSpec)[]) {
         this.defaultHeaders = {
-            "Content-Type": "application/strategic-merge-patch+json",
+            'Content-Type': 'application/strategic-merge-patch+json',
             ...this.defaultHeaders,
         };
         return super.patchNamespacedReplicationControllerScale.apply(this, args);

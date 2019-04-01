@@ -20,8 +20,8 @@ const createCassandraRC = () => {
 
 const deleteCassandraRC = () => {
     return k8sPatchedApi.patchNamespacedReplicationControllerScale('cassandra', 'default',
-        { spec: { replicas: 0 } } as V1ReplicationControllerSpec).then(() =>
-        executeDeleteCassandra()).catch(e => console.log(`Error deleting rc`));
+        { spec: { replicas: 0 } } as unknown as V1ReplicationControllerSpec).then(() =>
+        executeDeleteCassandra()).catch((e: any) => console.log(`Error deleting rc`));
 }
 
 

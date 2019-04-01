@@ -1,7 +1,7 @@
 import { V1ConfigMap, V1ObjectMeta } from '@kubernetes/client-node';
 
 const script = `echo RUNNING the init task 
-                echo USERID=cassandra > /opt/shared/.passfile`;
+                echo USERID=cassandra > /opt/shared/.shareddata`;
 export const RUN_INIT_SH_CONFIG_NAME = 'initsh';
 export const RunInitShConfigMap: V1ConfigMap = {
     apiVersion: 'v1',

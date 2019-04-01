@@ -37,7 +37,7 @@ const initContainers = (): Array<V1Container> => {
 };
 
 const jobTemplate = {
-    metadata: {labels: {app: JOB_NAME}} as V1ObjectMeta,
+    metadata: { labels: { app: JOB_NAME } } as unknown as V1ObjectMeta,
     spec: {
         restartPolicy: 'Never',
         containers: [

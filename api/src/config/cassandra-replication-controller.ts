@@ -49,7 +49,7 @@ const podTemplateSpec = {
 } as V1PodSpec;
 
 const template = {
-    metadata: { labels: { app: 'cassandra' } } as V1ObjectMeta,
+    metadata: { labels: { app: 'cassandra' } } as unknown as V1ObjectMeta,
     spec: podTemplateSpec
 } as V1PodTemplateSpec;
 

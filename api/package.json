@@ -6,7 +6,7 @@
   "author": "Arun Chalise",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch-node": "nodemon --inspect dist/server.js",
+    "watch-node": "nodemon dist/server.js",
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
     "html": "cp -r ./src/public ./dist/public",

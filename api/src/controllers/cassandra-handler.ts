@@ -38,6 +38,6 @@ export function cassandraCreateRCHandler(req: Request, res: Response) {
 
 export function cassandraDeleteRCHandler(req: Request, res: Response) {
     console.log(`Deleting cassandra Replication Controller`);
-    cassandraService.deleteCassandraRC().catch(e => console.log(`Error deleting cassandra RC`, e));
+    cassandraService.deleteCassandraRC().catch((e: any) => console.log(`Error deleting cassandra RC`, e));
     res.send(`delete cassandra rc completed`);
 }

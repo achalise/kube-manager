@@ -5,7 +5,7 @@ import { kubeConfig } from '../config/k8-api';
 const watch = new k8s.Watch(kubeConfig);
 
 
-let watchResources = (resourcelink, handler?) => {
+let watchResources = (resourcelink: any, handler?: any) => {
     const req = watch.watch(resourcelink,
         // optional query parameters can go here.
         {}, handler ||
